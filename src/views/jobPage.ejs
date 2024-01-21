@@ -1,0 +1,67 @@
+<div class="job-details w-75 m-auto my-2 p-3 border border-1 rounded">
+
+    <h1 class="text-center fw-light mb-3">
+        <span class="text-success"><%=job.designation%> Opportunity</span> 
+        <span class="text-danger">in <%= job.location%></span> 
+        <span class="text-primary">at <%=job.companyName%></span>
+    </h1>
+
+    <div class="mb-3">
+        <button type="button" class="btn btn-warning">Actively Hiring <i class="fa-solid fa-arrow-trend-up"></i></button>
+
+        
+        
+        <!-- <a href="/deleteJob/<%= job.id%>"><button type="button" class="btn btn-outline-danger"><i
+                    class="fa-solid fa-trash me-2"></i>Delete</button></a> -->
+
+        <%if(locals.user){%>
+        <button type="button" onclick="confirmDelete('<%= job.id%>')" class="btn btn-outline-danger"><i
+                        class="fa-solid fa-trash me-2"></i>Delete</button>
+        <button type="button" onclick="confirmUpdate('<%= job.id%>')" class="btn btn-outline-primary"><i
+                        class="fa-solid fa-pen-to-square me-2"></i>Update</button>
+
+        <%}%>
+        <!-- <a href="/updateJob/<%= job.id%>"><button type="button" class="btn btn-outline-primary"><i
+                    class="fa-solid fa-pen-to-square me-2"></i>Update</button></a> -->
+
+            
+
+
+    </div>
+
+    <h3 class="text-danger">
+         <%=job.companyName%>
+    </h3>
+    <h5><%=job.category%> &ensp; <%=job.designation%></h5>
+    
+    <ul class="list-group list-group-horizontal mb-1">
+        <li class="list-group-item"><i class="fa-solid fa-location-crosshairs"></i></li>
+        <li class="list-group-item"><%= job.location%></li>
+    </ul>
+    <ul class="list-group list-group-horizontal-sm  mb-1">
+        <li class="list-group-item "><i class="fa-solid fa-indian-rupee-sign "></i></li>
+        <li class="list-group-item"><%=job.salary%></li>
+    </ul>
+    <ul class="list-group list-group-horizontal-md  mb-1">
+        <li class="list-group-item"><i class="fa-solid fa-hourglass-half"></i></li>
+        <li class="list-group-item">Apply By <%= job.deadline%></li>
+    </ul>
+    <ul class="list-group list-group-horizontal-lg  mb-1">
+        <li class="list-group-item"><i class="fa-solid fa-signal"></i></li>
+        <li class="list-group-item">Number of Openings: <%=job.openings%></li>
+    </ul>
+    <ul class="list-group list-group-horizontal-xl  mb-1 ">
+        <li class="list-group-item"><i class="text-danger fa-solid fa-user-group"></i></li>
+        <li class="list-group-item w-auto"><a href="/applicants/<%=job.id%>" style="text-decoration: none;" class="text-danger">Number of Applicants: <%=job.applicantsCount%></a></li>
+    </ul>
+    <div class="skills">
+            <%job.skills.forEach((skill)=>{ %>
+                <button type="button" class="btn btn-outline-info m-1">
+                    <%= skill %>
+                </button>
+            <% }) %>
+    </div>
+    <a href="/apply/<%=job.id%>"><button type="button" class="btn btn-primary mt-1">Apply Now</button></a>
+
+    <button type="button" class="btn btn-success my-2 fw-light d-block">Posted On: <%=job.postedOn%></button>
+</div>

@@ -1,0 +1,53 @@
+:root{
+    --theme-color: #e60073;
+}
+
+body{
+    background-color: black !important;
+    color: white !important;
+}
+
+.navbar-brand{
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.btn-theme{
+    background-color: var(--theme-color) !important;
+    border: none !important;
+    font-weight: 500 !important;
+    margin-right: 10px !important;
+    color: white !important;
+}
+
+.btn-theme:hover {
+    color: lightgrey !important;
+}
+
+.nav-item {
+    margin: 10px !important;
+    color: pink !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: lightgray !important;
+}
+
+h2{
+color: var(--theme-color) !important;
+}
+
+nav i{
+    margin: 0px 5px 0 0;
+}
+
+
+a{
+    text-decoration: none;
+    color: white;
+}
